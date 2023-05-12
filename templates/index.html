@@ -1,0 +1,44 @@
+{% extends 'base.html '%}
+
+{% block title %}
+<title>Bookshelf</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row row-cols-3">
+      {% for book in books %}
+      <div class="col">
+        <div style='height: 230px' class="card mb-4 shadow-sm">
+          <div class="card-header d-flex justify-content-between">
+            <h4 class="my-0 font-weight-normal description">{{ book.title }}</h4>
+            <div>
+              {% if book.is_read %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/></svg>
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16"><path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/></svg>
+              {% endif %}
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>{{ book.genre }}</li>
+                <li style="max-height: 100px;" class="description">Description: {{ book.description }}</li>
+              </ul>
+            <div class="d-flex">
+              <div style='padding-left: 0px' class="d-flex justify-content-between col-sm">
+                <a class="btn btn-secondary" href="/book/{{ book.id }}" role="button">View details</a>
+                <a class="btn btn-secondary" href="/is_read/{{ book.id }}" role="button">Read!</a>
+              </div>
+              <div style='padding-right: 0px'le='' class="d-flex justify-content-end col-5">
+                <a class="btn btn-secondary" href="/book/{{ book.id }}/del" role="button">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

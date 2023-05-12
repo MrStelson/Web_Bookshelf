@@ -1,0 +1,29 @@
+{% extends 'base.html '%}
+
+{% block title %}
+<title>Bookshelf</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row row-cols-3">
+      {% for book in books %}
+      <div class="col">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Name of book: {{ book.title }}</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Genre of book: {{ book.genre }}</li>
+              <li>Description: {{ book.description }}</li>
+            </ul>
+            <a class="btn btn-secondary" href="#" role="button">View details »</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

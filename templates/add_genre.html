@@ -1,0 +1,15 @@
+{% extends 'base.html '%}
+
+{% block title %}
+<title>Add new book</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Add new Genre</h1><br>
+    <form method="POST">
+        <input type="text" class="form-control" name="genre" id="genre" placeholder="Input genre of book"><br>
+        <input type="submit" class="btn btn-secondary" value="Send">
+    </form>
+</div>
+{% endblock %}

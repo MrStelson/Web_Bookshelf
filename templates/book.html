@@ -1,0 +1,28 @@
+{% extends 'base.html '%}
+
+{% block title %}
+<title>Add new book</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ book.title }}</h1><br>
+    <form method="POST">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Input name of book" value="{{ book.title }}"><br>
+
+        <select class="form-control" name="genre" id="genre" >
+            {% for genre in genres %}
+                {% if book.genre == genre%}
+                    <option selected>{{ genre }}</option>
+                {% else %}
+                    <option>{{ genre }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br>
+
+        <textarea style='height: 350px' class="form-control" name="description" id="description" placeholder="Input description of book">{{ book.description }}</textarea><br>
+        <a class="btn btn-secondary" href="/book/{{ book.id }}/del_book" role="button">Delete</a>
+        <input type="submit" class="btn btn-secondary" value="Update">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html '%}
+
+{% block title %}
+<title>Add new book</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Add new Book</h1><br>
+    <form method="POST">
+        <input type="text" class="form-control" name="title" id="title" placeholder="Input name of book"><br>
+
+        <select class="form-control" name="genre" id="genre">
+            <option>Literary Fiction</option>
+            <option>Mystery</option>
+            <option>Thriller</option>
+            <option>Horror</option>
+            <option>Historical</option>
+            <option>Romance</option>
+            <option>Fantasy</option>
+            <option>Detective</option>
+        </select><br>
+
+        <textarea style='height: 350px' class="form-control" name="description" id="description" placeholder="Input description of book"></textarea><br>
+        <input type="submit" class="btn btn-secondary" value="Send">
+    </form>
+</div>
+{% endblock %}
